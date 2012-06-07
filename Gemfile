@@ -2,12 +2,21 @@ source :rubygems
 
 gemspec
 
-group :development do
-  gem 'kramdown'
+local_path = File.expand_path('../railsyard-backend', File.dirname(__FILE__))
 
-  gem 'rubygems-tasks',  '~> 0.2'
-  gem 'rspec',  '~> 2.4'
-  gem 'yard',  '~> 0.7'
-  gem 'bundler',  '~> 1.0'
-  gem 'rake',  '~> 0.8'
+if Dir.exists? local_path
+  gem 'railsyard-backend', path: local_path
+else
+  gem 'railsyard-backend', git: 'git://github.com/cantierecreativo/railsyard-backend.git', branch: 'develop'
+end
+
+group :development do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'kramdown'
+  gem 'rubygems-tasks'
+  gem 'rspec'
+  gem 'yard'
+  gem 'bundler'
+  gem 'rake'
 end
