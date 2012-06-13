@@ -688,3 +688,147 @@ D, [2012-06-07T12:02:18.315217 #10829] DEBUG -- :   [1m[35m (1.4ms)[0m  INSER
   [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 1]]
   [1m[36mRailsyard::Gallery::Image Load (0.1ms)[0m  [1mSELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'[0m
   [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (2.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (25.5ms)[0m  DROP TABLE "railsyard_gallery_images"
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "railsyard_gallery_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "imageable_id" varchar(255), "imageable_type" varchar(255), "imageable_relation" varchar(255), "alt" varchar(255), "title" varchar(255), "image_name" varchar(255), "image_uid" varchar(255)) [0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "pages"
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.4ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_image], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :second_image], ["imageable_type", "Page"], ["title", "bar"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.2ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.2ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_image' LIMIT 1
+  [1m[36mRailsyard::Gallery::Image Load (0.1ms)[0m  [1mSELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'second_image' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_image], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :second_gallery], ["imageable_type", "Page"], ["title", "bar"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.2ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36mRailsyard::Gallery::Image Load (0.2ms)[0m  [1mSELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'second_gallery'[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRailsyard::Gallery::Image Load (0.2ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("title") VALUES (?)  [["title", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.1ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.2ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "pages" ("title") VALUES (?)  [["title", nil]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.1ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.2ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[36m (2.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.9ms)[0m  DROP TABLE "railsyard_gallery_images"
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "railsyard_gallery_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "imageable_id" varchar(255), "imageable_type" varchar(255), "imageable_relation" varchar(255), "alt" varchar(255), "title" varchar(255), "image_name" varchar(255), "image_uid" varchar(255)) [0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "pages"
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (2.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (3.4ms)[0m  DROP TABLE "railsyard_gallery_images"
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "railsyard_gallery_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "imageable_id" varchar(255), "imageable_type" varchar(255), "imageable_relation" varchar(255), "alt" varchar(255), "title" varchar(255), "image_name" varchar(255), "image_uid" varchar(255)) [0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "pages"
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.9ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_image], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :second_image], ["imageable_type", "Page"], ["title", "bar"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.2ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_image' LIMIT 1
+  [1m[36mRailsyard::Gallery::Image Load (0.1ms)[0m  [1mSELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'second_image' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_image], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :second_gallery], ["imageable_type", "Page"], ["title", "bar"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.1ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36mRailsyard::Gallery::Image Load (0.1ms)[0m  [1mSELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'second_gallery'[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("title") VALUES (?)[0m  [["title", nil]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRailsyard::Gallery::Image Load (0.3ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("title") VALUES (?)  [["title", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.1ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("title") VALUES (?)  [["title", nil]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "railsyard_gallery_images" ("alt", "image_name", "image_uid", "imageable_id", "imageable_relation", "imageable_type", "title") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["alt", nil], ["image_name", nil], ["image_uid", nil], ["imageable_id", 1], ["imageable_relation", :first_gallery], ["imageable_type", "Page"], ["title", "foo"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRailsyard::Gallery::Image Load (0.1ms)[0m  SELECT "railsyard_gallery_images".* FROM "railsyard_gallery_images" WHERE "railsyard_gallery_images"."imageable_id" = 1 AND "railsyard_gallery_images"."imageable_type" = 'Page' AND "railsyard_gallery_images"."imageable_relation" = 'first_gallery'
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m

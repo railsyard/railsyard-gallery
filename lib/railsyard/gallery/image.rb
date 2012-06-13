@@ -1,6 +1,6 @@
 module Railsyard::Gallery
   class Image < ActiveRecord::Base
-    set_table_name "railsyard_gallery_images"
+    self.table_name = "railsyard_gallery_images"
     belongs_to :imageable, polymorphic: true
     attr_accessible :alt, :title
 
