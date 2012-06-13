@@ -1,5 +1,7 @@
 # railsyard-gallery
 
+{<img src="https://secure.travis-ci.org/cantierecreativo/railsyard-gallery.png" alt="Build Status" />}[http://travis-ci.org/cantierecreativo/railsyard-gallery]
+
 * [Homepage](https://github.com/cantierecreativo/railsyard-gallery#readme)
 * [Issues](https://github.com/cantierecreativo/railsyard-gallery/issues)
 * [Email](mailto:s.verna at cantierecreativo.net)
