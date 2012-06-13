@@ -7,7 +7,7 @@ local_path = File.expand_path('../railsyard-backend', File.dirname(__FILE__))
 if Dir.exists? local_path
   gem 'railsyard-backend', path: local_path
 else
-  gem 'railsyard-backend', git: 'git://github.com/cantierecreativo/railsyard-backend.git', branch: 'develop'
+  gem 'railsyard-backend', github: 'cantierecreativo/railsyard-backend', branch: 'develop'
 end
 
 group :development do
