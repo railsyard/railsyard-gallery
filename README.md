@@ -62,12 +62,13 @@ end
 And tell the Railsyard editor to add some fields for it:
 
 ```ruby
-railsyard::backend.define_editor_for page do
+Railsyard::backend.define_editor_for page do
+
+  # [...]
 
   edit do
     image :my_image
   end
-
 end
 ```
 
@@ -76,13 +77,14 @@ end
 On your editor you can adjust both the image fields to show:
 
 ```ruby
-railsyard::backend.define_editor_for page do
+Railsyard::backend.define_editor_for page do
+
+  # [...]
 
   edit do
     # default fields are [:title, :image, :alt]
     image :my_image, fields: [:image, :alt]
   end
-
 end
 ```
 
@@ -91,15 +93,15 @@ And also the Dragonfly components for the image field:
 ```ruby
 railsyard::backend.define_editor_for page do
 
+  # [...]
+
   edit do
     image :my_image, components: [:preview, :upload, :remove]
   end
-
 end
 ```
 
 ## Copyright
 
 Copyright (c) 2012 Stefano Verna, Cantiere Creativo
-
-See {file:LICENSE.txt} for details.
+See the file LICENSE.txt for details.
