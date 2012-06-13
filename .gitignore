@@ -2,3 +2,5 @@ Gemfile.lock
 doc/
 pkg/
 vendor/cache/*.gem
+railsyard-gallery.sqlite3.db
+spec/debug.log
