@@ -2,7 +2,7 @@ class CreateRailsyardGalleryImages < ActiveRecord::Migration
 
   def change
     create_table :railsyard_gallery_images do |t|
-      t.string   :imageable_id
+      t.integer   :imageable_id
       t.string   :imageable_type
       t.string   :imageable_relation
       t.string   :alt
