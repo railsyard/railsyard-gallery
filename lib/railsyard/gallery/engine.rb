@@ -25,6 +25,30 @@ module Railsyard::Gallery
         require 'railsyard/gallery/image'
       end
 
+      config.to_prepare do
+        image_gallery_model_config = <<MODEL
+  has_image_gallery :%{name}
+  accepts_nested_attributes_for :%{name}
+  attr_accessible :%{name}_attributes
+MODEL
+        image_model_config = <<MODEL
+  has_image :%{name}
+  accepts_nested_attributes_for :%{name}
+  attr_accessible :%{name}_attributes
+MODEL
+        Railsyard::Backend.plugin_manager.add_plugin(:gallery) do
+          name "Gallery"
+          generator_editor_type(:image_gallery,
+                                {},
+                                "image_gallery :%{name}",
+                                image_gallery_model_config)
+          generator_editor_type(:image,
+                                {},
+                                "image :%{name}",
+                                image_model_config)
+        end
+      end
+
     end
 
   end

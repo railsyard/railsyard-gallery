@@ -27,8 +27,13 @@ Run the generator that will create the images table, and migrate.
 
 ## Gallery usage
 
-Suppose you have a Page model. You just need add the following to
-`app/models/page.rb`:
+Suppose you want a Page model with an image gallery. You can use the generator:
+
+```
+> rails g railsyard:editor Page album:image_gallery [...]
+```
+
+or add it manually. In `app/models/page.rb`:
 
 ```ruby
 class Page < ActiveRecord::Base
@@ -37,7 +42,7 @@ class Page < ActiveRecord::Base
 end
 ```
 
-And tell the Railsyard editor to add some fields for it:
+In your Railsyard editor file:
 
 ```ruby
 Railsyard::Backend.define_editor_for Page do
@@ -51,8 +56,13 @@ end
 
 ## Single image usage
 
-Suppose you have a Page model. You just need add the following to
-`app/models/page.rb`:
+Suppose you want a Page model with a single image. With the generator:
+
+```
+> rails g railsyard:editor Page album:image [...]
+```
+
+Manaully: in `app/models/page.rb`
 
 ```ruby
 class Page < ActiveRecord::Base
@@ -61,7 +71,7 @@ class Page < ActiveRecord::Base
 end
 ```
 
-And tell the Railsyard editor to add some fields for it:
+and in your Railsyard editor file:
 
 ```ruby
 Railsyard::backend.define_editor_for page do
