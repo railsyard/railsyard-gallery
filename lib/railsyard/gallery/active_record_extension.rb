@@ -11,6 +11,9 @@ module Railsyard::Gallery
         super(image)
         image.imageable_relation = name
       end
+
+      accept_nested_attributes_for name, allow_destroy: true
+      attr_accessible :"#{name}_attributes"
     end
 
     def has_image_gallery(name)
@@ -25,6 +28,9 @@ module Railsyard::Gallery
           image.imageable_relation = name
         end
       end
+
+      accept_nested_attributes_for name, allow_destroy: true
+      attr_accessible :"#{name}_attributes"
     end
 
   end

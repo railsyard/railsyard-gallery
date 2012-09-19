@@ -38,7 +38,6 @@ or add it manually. In `app/models/page.rb`:
 ```ruby
 class Page < ActiveRecord::Base
   has_image_gallery :album
-  accepts_nested_attributes_for :album
 end
 ```
 
@@ -67,7 +66,6 @@ Manaully: in `app/models/page.rb`
 ```ruby
 class Page < ActiveRecord::Base
   has_image :my_image
-  accepts_nested_attributes_for :my_image
 end
 ```
 
