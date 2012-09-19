@@ -12,7 +12,7 @@ module Railsyard::Gallery
         image.imageable_relation = name
       end
 
-      accept_nested_attributes_for name, allow_destroy: true
+      accepts_nested_attributes_for name, allow_destroy: true
       attr_accessible :"#{name}_attributes"
     end
 
@@ -29,7 +29,7 @@ module Railsyard::Gallery
         end
       end
 
-      accept_nested_attributes_for name, allow_destroy: true
+      accepts_nested_attributes_for name, allow_destroy: true
       attr_accessible :"#{name}_attributes"
     end
 
